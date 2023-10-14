@@ -1,0 +1,13 @@
+<div class="products__grid">
+    <ng-container *ngFor="let product of products">
+        <a class="products__product" [routerLink]="['/product', product.slug]">
+            <div class="item-img-wrapper">
+                <img [src]="product.imageSrc" [alt]="product.title">
+            </div>
+            <h4 class="item-title">{{ product.title }}</h4>
+            <div class="item-relevant-info">
+                <span class="item-price">$ {{ product.price }}</span>
+            </div>
+        </a>
+    </ng-container>
+</div>

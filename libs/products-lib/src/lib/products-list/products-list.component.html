@@ -1,1 +1,23 @@
-<p>products-list works!</p>
+<div class="container">
+    <h1>Productos</h1>
+
+    <div class="products__section">
+        <div class="products__filter">
+            <ul class="products__filter__list">
+                <li routerLink="../all" class="products__filter__item" [ngClass]="{'active': activeCategory() === 'all'}">
+                    Todos
+                </li>  
+                <ng-container *ngFor="let category of categories">                                    
+                    <li routerLink="../{{category.id}}" class="products__filter__item" [ngClass]="{'active': activeCategory() === category.id}">
+                        {{category.name}}
+                    </li>  
+                </ng-container>
+            </ul>
+        </div>
+
+        <div class="products__grid">
+            <meetup-store-product-grid [products]="productsByCategory()">
+            </meetup-store-product-grid>
+        </div>
+    </div>
+</div>
