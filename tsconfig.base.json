@@ -18,6 +18,7 @@
       "@meetup-store/cart-lib": ["libs/cart-lib/src/index.ts"],
       "@meetup-store/checkout-lib": ["libs/checkout-lib/src/index.ts"],
       "@meetup-store/products-lib": ["libs/products-lib/src/index.ts"],
+      "checkout/Module": ["apps/checkout/src/app/remote-entry/entry.module.ts"],
       "products/Module": ["apps/products/src/app/remote-entry/entry.module.ts"]
     }
   },
