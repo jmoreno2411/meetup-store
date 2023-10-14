@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@meetup-store/cart-lib": ["libs/cart-lib/src/index.ts"],
+      "@meetup-store/checkout-lib": ["libs/checkout-lib/src/index.ts"],
+      "@meetup-store/products-lib": ["libs/products-lib/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
