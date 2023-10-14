@@ -9,8 +9,8 @@ export const appRoutes: Route[] = [
   },
   {
     path: 'checkout',
-    loadChildren: () =>
-      import('@meetup-store/checkout-lib').then((m) => m.CheckoutLibModule),
+    loadComponent: () =>
+      import('@meetup-store/checkout-lib').then((m) => m.CheckoutComponent),
   },
   {
     path: '',
