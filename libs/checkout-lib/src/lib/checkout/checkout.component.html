@@ -1,1 +1,60 @@
-<p>checkout works!</p>
+<div class="container">
+    <h1 class="checkout__title">Pagar</h1>
+
+    <div class="checkout">
+        <div class="checkout__form">
+            <section class="checkout__form__section">
+                <h2>Datos personales</h2>
+            
+                <p>Introduce tus datos personales</p>
+
+                <div class="checkout__form__input">
+                    <input type="text" placeholder="Nombre">
+                </div>
+                <div class="checkout__form__input">
+                    <input type="text" placeholder="Apellido">
+                </div>
+                <div class="checkout__form__input">
+                    <input type="text" placeholder="Dirección">
+                </div>
+            </section>
+            <hr>
+            <section class="checkout__form__section">
+                <h2>Forma de pago</h2>
+            </section>
+            <hr>
+            <section class="checkout__form__section">
+                <h2>Resumen del pedido</h2>
+            </section>
+        </div>
+
+        <div class="checkout__cart">
+            <h2>Tu Pedido</h2>
+
+            <ng-container *ngFor="let order of getOrders()">
+                <div class="checkout__cart__product">
+                    <div class="info">
+                        <img [src]="order.product.imageSrc" alt="" style="width: 80px;">
+                        <span class="info__title">{{ order.product.title }}</span>
+                        <span class="info__price">{{ order.product.price }} €</span>
+                    </div>
+    
+                    <div class="quantity">
+                        <div class="quantity__buttons">
+                            <button>-</button>
+                            <span>{{ order.quantity }}</span>
+                            <button>+</button>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+            
+            <hr>
+
+            <div class="checkout__cart__total">
+                <span class="title">Total</span>
+                <span class="price">0 €</span>
+            </div>
+        </div>
+    </div>
+</div>
