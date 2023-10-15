@@ -15,7 +15,15 @@ export class OrdersService {
     this.ordersState.addProduct(product);
   }
 
+  removeProduct(product: Product) {
+    this.ordersState.removeProduct(product);
+  }
+
   getOrdersQuantity() {
     return this.orders().reduce((total, order) => total + order.quantity, 0);
+  }
+
+  getOrdersTotalPrice() {
+    return this.orders().reduce((total, order) => total + (order.quantity * order.product.price), 0);
   }
 }
