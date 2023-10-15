@@ -8,7 +8,7 @@ import { Order } from '@meetup-store/shared';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  orders!: Order[];
+  // orders!: Order[];
 
   constructor(private ordersService: OrdersService) {}
 
