@@ -12,34 +12,14 @@ export class ProductsService {
 
   constructor(private http: HttpClient) {}
 
-  // getProduct(slug: string): Promise<any> {
-  //   return new Promise((resolve, reject) => {
-  //     const product = this.http.get('/assets/data/products.json')
-  //       .pipe(
-  //         map((data: any) => {
-  //           return data.items.find((product: any) => product.slug === slug);
-  //         })
-  //       );
-
-  //     const product_details = this.http.get('/assets/data/product-extra-details.json');
-
-  //     forkJoin(
-  //       product,
-  //       product_details
-  //     ).subscribe(
-  //       data => {
-  //         if (data[0] && data[1]) {
-  //           resolve(Object.assign({}, data[0], data[1]));
-  //         } else {
-  //           reject();
-  //         }
-  //       },
-  //       err => {
-  //         reject();
-  //       },
-  //     );
-  //   });
-  // }
+  getProduct(slug: string) {
+    return this.http.get('/assets/data/products.json')
+      .pipe(
+        map((data: any) => {
+          return data.items.find((product: Product) => product.slug === slug);
+        })
+    );
+  }
 
   getProducts(): Observable<Product[]> {
     return this.http.get('/assets/data/products.json').pipe(map((res: any) => res.items)) as Observable<Product[]>;

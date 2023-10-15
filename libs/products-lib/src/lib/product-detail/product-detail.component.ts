@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule, Location } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+import { Product } from '../core/models/product';
+import { ProductsService } from '../core/services/products.service';
 
 @Component({
   selector: 'meetup-store-product-detail',
@@ -8,4 +11,26 @@ import { CommonModule } from '@angular/common';
   templateUrl: './product-detail.component.html',
   styleUrls: ['./product-detail.component.scss'],
 })
-export class ProductDetailComponent {}
+export class ProductDetailComponent implements OnInit {
+  product!: Product;
+
+  constructor(
+    private route: ActivatedRoute,
+    private location: Location,
+    private productsService: ProductsService
+  ) {}
+
+  ngOnInit() {
+    const productSlug = this.route.snapshot.paramMap.get('productSlug');
+
+    if (productSlug) {
+      this.productsService.getProduct(productSlug).subscribe(
+        product => this.product = product
+      );
+    }
+  }
+
+  onBack() {
+    this.location.back();
+  }
+}
