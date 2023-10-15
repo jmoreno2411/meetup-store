@@ -7,7 +7,7 @@
 	    "imageSrc": "/assets/imgs/products/product-1.jpg",
 	    "price": 55,
 	    "colors": ["black", "aquamarina", "white", "purple", "pink"],
-	    "sizes": [10, 10.5, 11, 12.5],
+	    "sizes": [38, 39, 40, 41, 42, 43],
 	    "category": "women",
 	    "tag": "new-collection"
 	  },
@@ -18,7 +18,7 @@
 	    "imageSrc": "/assets/imgs/products/product-2.jpg",
 	    "price": 94,
 	    "colors": ["black", "aquamarina", "white", "purple", "pink"],
-	    "sizes": [10, 10.5, 11, 12.5],
+	    "sizes": [40, 41, 42, 43, 44, 45, 46],
 	    "category": "men",
 	    "tag": "new-collection"
 	  },
@@ -29,7 +29,7 @@
 	    "imageSrc": "/assets/imgs/products/product-3.jpg",
 	    "price": 30,
 	    "colors": ["black", "aquamarina", "white", "purple", "pink"],
-	    "sizes": [10, 10.5, 11, 12.5],
+	    "sizes": [40, 41, 42, 43, 44, 45, 46],
 	    "category": "men",
 	    "tag": "new-collection"
 	  },
@@ -40,7 +40,7 @@
 	    "imageSrc": "/assets/imgs/products/product-4.jpg",
 	    "price": 90,
 	    "colors": ["black", "aquamarina", "white", "purple", "pink"],
-	    "sizes": [10, 10.5, 11, 12.5],
+	    "sizes": [35, 36, 37, 38, 39, 40, 41],
 	    "category": "kids",
 	    "tag": "new-collection"
 	  },
@@ -51,7 +51,7 @@
 	    "imageSrc": "/assets/imgs/products/product-5.jpg",
 	    "price": 55,
 	    "colors": ["black", "aquamarina", "white", "purple", "pink"],
-	    "sizes": [10, 10.5, 11, 12.5],
+	    "sizes": [35, 36, 37, 38, 39, 40, 41],
 	    "category": "kids",
 	    "tag": "summer"
 	  },
@@ -62,7 +62,7 @@
 	    "imageSrc": "/assets/imgs/products/product-6.jpg",
 	    "price": 94,
 	    "colors": ["black", "aquamarina", "white", "purple", "pink"],
-	    "sizes": [10, 10.5, 11, 12.5],
+	    "sizes": [38, 39, 40, 41, 42, 43],
 	    "category": "women",
 	    "tag": "summer"
 	  },
@@ -73,7 +73,7 @@
 	    "imageSrc": "/assets/imgs/products/product-7.jpg",
 	    "price": 30,
 	    "colors": ["black", "aquamarina", "white", "purple", "pink"],
-	    "sizes": [10, 10.5, 11, 12.5],
+	    "sizes": [40, 41, 42, 43, 44, 45, 46],
 	    "category": "men",
 	    "tag": "summer"
 	  },
@@ -84,10 +84,9 @@
 	    "imageSrc": "/assets/imgs/products/product-8.jpg",
 	    "price": 90,
 	    "colors": ["black", "aquamarina", "white", "purple", "pink"],
-	    "sizes": [10, 10.5, 11, 12.5],
+	    "sizes": [38, 39, 40, 41, 42, 43],
 	    "category": "women",
 	    "tag": "summer"
 	  }
 	]
 }
-  
