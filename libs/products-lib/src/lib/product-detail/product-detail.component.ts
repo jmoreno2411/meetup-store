@@ -3,6 +3,7 @@ import { CommonModule, Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from '../core/models/product';
 import { ProductsService } from '../core/services/products.service';
+import { OrdersService } from '../core/services/orders.service';
 
 @Component({
   selector: 'meetup-store-product-detail',
@@ -17,7 +18,8 @@ export class ProductDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private location: Location,
-    private productsService: ProductsService
+    private productsService: ProductsService,
+    private ordersService: OrdersService
   ) {}
 
   ngOnInit() {
@@ -32,5 +34,9 @@ export class ProductDetailComponent implements OnInit {
 
   onBack() {
     this.location.back();
+  }
+
+  onAddProduct() {
+    this.ordersService.addProduct(this.product);
   }
 }

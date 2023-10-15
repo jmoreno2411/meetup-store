@@ -78,5 +78,12 @@ ol[role="list"] {
 }
 
 .cart-icon {
-    cursor: pointer;
+  display: flex;
+  gap: 4px;
+  cursor: pointer;
+
+  &__orders {
+    color: white;
+    font-weight: bold;
+  }
 }
