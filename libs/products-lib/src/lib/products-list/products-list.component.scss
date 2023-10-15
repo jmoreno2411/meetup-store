@@ -9,14 +9,14 @@ ul {
     li.products__filter__item {
         margin-bottom: 8px;
         padding: 16px;
-        color: gray;
-        border: 2px solid gray;
+        color: hsl(12, 88%, 59%);
+        border: 2px solid hsl(12, 88%, 59%);
         cursor: pointer;
     }
 
     li.active {
         color: white;
-        background-color: gray;
+        background-color: hsl(12, 88%, 59%);
     }
 }
 
