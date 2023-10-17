@@ -15,7 +15,7 @@
 
 .checkout {
     display: flex;
-    gap: 32px;
+    gap: 16px;
     
     &__form {
         flex: 0 0 60%;
@@ -37,6 +37,14 @@
     &__cart {
         flex: 0 0 40%;
         max-width: 40%;
+        height: fit-content;
+        border: 2px solid hsl(12, 88%, 59%);
+        padding: 16px;
+
+        &__title {
+            margin-top: 0;
+            color: hsl(12, 88%, 59%);
+        }
 
         &__product {
             margin-bottom: 16px;
@@ -59,10 +67,11 @@
                     display: flex;
                     align-items: center;
                     gap: 16px;
+                    margin-top: 8px;
 
                     button {
-                        font-size: 20px;
-                        padding: 4px 8px 4px 8px;
+                        font-size: 16px;
+                        padding: 2px 4px 2px 4px;
                         border: 2px solid gray;
                         color: gray;
                         cursor: pointer;
@@ -82,6 +91,30 @@
             justify-content: space-between;
             font-size: 20px;
             font-weight: bold;
+        }
+    }
+}
+
+.button {
+    &__buy {
+        margin-top: 24px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        width: 100%;
+        background-color: transparent;
+        font-size: 20px;
+        font-weight: bold;
+        border: 2px solid black;
+        cursor: pointer;
+
+        &[disabled] {
+            pointer-events: none;
+            opacity: .3;
+        }
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.70);
+            color: white;
         }
     }
 }
