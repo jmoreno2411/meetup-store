@@ -1,2 +1,30 @@
-<h1>Home</h1>
+<div class="container">
+    <h1>Home</h1>
 
+    <div class="row storefront-categories">
+      <div class="store-main-category-col">
+        <div>
+            <img src="/assets/imgs/home/categories-women.jpg" alt="">
+        </div>
+        <div class="main-category-anchor">
+            <a [routerLink]="['/products', 'women']">
+                <button type="button" class="btn main-category-btn">
+                    SHOP WOMEN
+                </button>
+            </a>
+        </div>
+      </div>
+      <div class="store-main-category-col">
+        <div>
+          <img src="/assets/imgs/home/categories-men.jpg" alt="">
+        </div>
+        <div class="main-category-anchor">
+            <a [routerLink]="['/products', 'men']">
+                <button type="button" class="btn main-category-btn">
+                    SHOP MEN
+                </button>
+            </a>
+        </div>
+      </div>
+    </div>
+  </div>  

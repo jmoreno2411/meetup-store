@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SharedModule } from '@meetup-store/shared';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'meetup-store-home',
   standalone: true,
-  imports: [CommonModule, SharedModule],
-  // imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
