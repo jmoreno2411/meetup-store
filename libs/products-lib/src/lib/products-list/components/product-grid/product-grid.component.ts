@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Product } from '../../../core/models/product';
 import { RouterLink } from '@angular/router';
+import { Product } from '@meetup-store/shared';
 
 @Component({
   selector: 'meetup-store-product-grid',

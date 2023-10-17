@@ -1,10 +1,11 @@
 import { Component, OnDestroy, OnInit, WritableSignal, computed, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { Category, Product, productCategories } from '../core/models/product';
+import { Category, productCategories } from '../core/models/product';
 import { Subscription } from 'rxjs';
 import { ProductGridComponent } from './components/product-grid/product-grid.component';
 import { ProductsService } from '../core/services/products.service';
+import { Product } from '@meetup-store/shared';
 
 @Component({
   selector: 'meetup-store-products-list',
