@@ -12,6 +12,7 @@ export interface BroadcastChannelProductEvent {
   selector: 'meetup-store-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  providers: [OrdersChannelService]
 })
 export class AppComponent {
   constructor(

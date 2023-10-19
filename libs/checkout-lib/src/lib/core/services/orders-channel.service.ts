@@ -18,16 +18,16 @@ export class OrdersChannelService {
     this.broadcastChannel.addEventListener('message', (event) => this.onProductEvent(event.data));
   }
 
-  onProductEvent(event: ProductEvent) {
+  postProductEvent(event: ProductEvent) {
+    this.broadcastChannel.postMessage(event);
+    this.onProductEvent(event);
+  }
+
+  private onProductEvent(event: ProductEvent) {
     if (event.operation === 'add') {
       this.ordersService.addProduct(event.product);
     } else {
       this.ordersService.removeProduct(event.product);
     }
-  }
-
-  postProductEvent(event: ProductEvent) {
-    this.broadcastChannel.postMessage(event);
-    this.onProductEvent(event);
   }
 }

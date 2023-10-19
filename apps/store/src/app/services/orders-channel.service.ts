@@ -7,9 +7,7 @@ export interface ProductEvent {
   operation: 'add' | 'remove'
 }
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class OrdersChannelService {
   private broadcastChannel;
 
