@@ -4,21 +4,8 @@ import { Order, Product } from '@meetup-store/shared';
 @Injectable({
   providedIn: 'root'
 })
-export class OrdersService {
+export class OrdersStateService {
   private orders: Order[] = [];
-
-  constructor() {
-    window.addEventListener('addProduct', this.addProductHandler.bind(this) as EventListener);
-    window.addEventListener('removeProduct', this.removeProductHandler.bind(this) as EventListener);
-  }
-
-  addProductHandler(event: CustomEvent) {
-    this.addProduct(event.detail.product as Product);
-  }
-
-  removeProductHandler(event: CustomEvent) {
-    this.removeProduct(event.detail.product as Product);
-  }
 
   getOrders() {
     return this.orders;

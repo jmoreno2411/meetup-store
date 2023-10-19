@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { OrdersService } from '../core/services/orders.service';
+import { OrdersStateService } from '../core/services/orders-state.service';
 import { Product } from '@meetup-store/shared';
+import { OrdersChannelService, ProductEvent } from '../core/services/orders-channel.service';
 
 @Component({
   selector: 'meetup-store-checkout',
@@ -11,31 +12,34 @@ import { Product } from '@meetup-store/shared';
   styleUrls: ['./checkout.component.scss'],
 })
 export class CheckoutComponent {
-  constructor(private ordersService: OrdersService) {}
+  constructor(
+    private ordersStateService: OrdersStateService,
+    private orderChannelService: OrdersChannelService
+  ) {}
 
   onAddProduct(product: Product) {
-    const addProduct = new CustomEvent('addProduct', {
-      detail: {
-        product: product
-      },
-    });
-    window.dispatchEvent(addProduct);
+    this.orderChannelService.postProductEvent(
+      {
+        product: product,
+        operation: 'add' 
+      } satisfies ProductEvent
+    );
   }
 
   onRemoveProduct(product: Product) {
-    const addProduct = new CustomEvent('removeProduct', {
-      detail: {
-        product: product
-      },
-    });
-    window.dispatchEvent(addProduct);
+    this.orderChannelService.postProductEvent(
+      {
+        product: product,
+        operation: 'remove' 
+      } satisfies ProductEvent
+    );
   }
 
   getOrdersTotal() {
-    return this.ordersService.getOrdersTotalPrice();
+    return this.ordersStateService.getOrdersTotalPrice();
   }
 
   getOrders() {
-    return this.ordersService.getOrders();
+    return this.ordersStateService.getOrders();
   }
 }

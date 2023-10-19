@@ -4,6 +4,11 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from '../core/services/products.service';
 import { Product } from '@meetup-store/shared';
 
+export interface BroadcastChannelProductEvent {
+  product: Product,
+  operation: 'add' | 'remove'
+}
+
 @Component({
   selector: 'meetup-store-product-detail',
   standalone: true,
@@ -39,11 +44,10 @@ export class ProductDetailComponent implements OnInit {
   }
 
   private addProduct(product: Product) {
-    const addProduct = new CustomEvent('addProduct', {
-      detail: {
-        product: product
-      },
-    });
-    window.dispatchEvent(addProduct);
+    const channelA = new BroadcastChannel('meetup-channel');
+    channelA.postMessage({
+      product: product,
+      operation: 'add' 
+    } satisfies BroadcastChannelProductEvent);
   }
 }
