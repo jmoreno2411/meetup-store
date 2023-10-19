@@ -11,14 +11,6 @@ export class OrdersStateService {
     return this.orders;
   }
 
-  updateOrders(orders: Order[]) {
-    this.orders = orders;
-  }
-
-  getOrdersTotalPrice() {
-    return this.orders.reduce((total, order) => total + (order.quantity * order.product.price), 0);
-  }
-
   addProduct(product: Product) {
     const order = this.getOrderByProduct(product);
     if (order) {

@@ -36,7 +36,7 @@ export class CheckoutComponent {
   }
 
   getOrdersTotal() {
-    return this.ordersStateService.getOrdersTotalPrice();
+    return this.getOrders().reduce((total, order) => total + (order.quantity * order.product.price), 0);
   }
 
   getOrders() {
