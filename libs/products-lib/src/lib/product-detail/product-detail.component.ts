@@ -3,6 +3,7 @@ import { CommonModule, Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from '../core/services/products.service';
 import { Product } from '@meetup-store/shared';
+import { OrdersChannelService } from '../core/services/orders-channel.service';
 
 export interface BroadcastChannelProductEvent {
   product: Product,
@@ -22,7 +23,8 @@ export class ProductDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private location: Location,
-    private productsService: ProductsService
+    private productsService: ProductsService,
+    private ordersChannelService: OrdersChannelService
   ) {}
 
   ngOnInit() {
@@ -44,10 +46,9 @@ export class ProductDetailComponent implements OnInit {
   }
 
   private addProduct(product: Product) {
-    const channelA = new BroadcastChannel('meetup-channel');
-    channelA.postMessage({
+    this.ordersChannelService.postProductEvent({
       product: product,
       operation: 'add' 
-    } satisfies BroadcastChannelProductEvent);
+    });
   }
 }
