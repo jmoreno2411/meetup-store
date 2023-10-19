@@ -1,21 +1,48 @@
 import { Injectable } from '@angular/core';
-import { OrdersStateService, Product } from '@meetup-store/shared';
+import { Order, Product } from '@meetup-store/shared';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrdersService {
-  get orders() {
-    return this.ordersState.getOrdersSignal();
+  private orders: Order[] = [];
+
+  getOrders() {
+    return this.orders;
   }
 
-  constructor(private ordersState: OrdersStateService) {}
+  updateOrders(orders: Order[]) {
+    this.orders = orders;
+  }
 
   addProduct(product: Product) {
-    this.ordersState.addProduct(product);
+    const order = this.getOrderByProduct(product);
+    if (order) {
+        this.updateOrder({...order, quantity: order.quantity + 1});
+    } else {
+        this.addOrder({ product, quantity: 1 });
+    }
   }
 
-  getOrdersQuantity() {
-    return this.orders().reduce((total, order) => total + order.quantity, 0);
+  private addOrder(order: Order) {
+    this.orders = [...this.orders, order];
+  }
+
+  private updateOrder(order: Order) {
+    const ordersUpdated = this.getOrders().map(o => {
+        if (o.product.slug === order.product.slug) {
+            return order;
+        }
+        return o;
+    });
+    this.setOrdersState(ordersUpdated);
+  }
+
+  private setOrdersState(orders: Order[]) {
+    this.orders = orders;
+  }
+
+  private getOrderByProduct(product: Product) {
+    return this.getOrders().find(o => o.product.slug === product.slug);
   }
 }

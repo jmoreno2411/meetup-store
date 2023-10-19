@@ -14,11 +14,21 @@ export class CheckoutComponent {
   constructor(private ordersService: OrdersService) {}
 
   onAddProduct(product: Product) {
-    this.ordersService.addProduct(product);
+    const addProduct = new CustomEvent('addProduct', {
+      detail: {
+        product: product
+      },
+    });
+    window.dispatchEvent(addProduct);
   }
 
   onRemoveProduct(product: Product) {
-    this.ordersService.removeProduct(product);
+    const addProduct = new CustomEvent('removeProduct', {
+      detail: {
+        product: product
+      },
+    });
+    window.dispatchEvent(addProduct);
   }
 
   getOrdersTotal() {
@@ -26,6 +36,6 @@ export class CheckoutComponent {
   }
 
   getOrders() {
-    return this.ordersService.orders();
+    return this.ordersService.getOrders();
   }
 }

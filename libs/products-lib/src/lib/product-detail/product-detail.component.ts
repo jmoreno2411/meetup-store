@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from '../core/services/products.service';
-import { OrdersService } from '../core/services/orders.service';
 import { Product } from '@meetup-store/shared';
 
 @Component({
@@ -18,8 +17,7 @@ export class ProductDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private location: Location,
-    private productsService: ProductsService,
-    private ordersService: OrdersService
+    private productsService: ProductsService
   ) {}
 
   ngOnInit() {
@@ -37,6 +35,15 @@ export class ProductDetailComponent implements OnInit {
   }
 
   onAddProduct() {
-    this.ordersService.addProduct(this.product);
+    this.addProduct(this.product);
+  }
+
+  private addProduct(product: Product) {
+    const addProduct = new CustomEvent('addProduct', {
+      detail: {
+        product: product
+      },
+    });
+    window.dispatchEvent(addProduct);
   }
 }
