@@ -4,19 +4,11 @@ import { Order, Product } from '@meetup-store/shared';
 @Injectable({
   providedIn: 'root'
 })
-export class OrdersService {
+export class OrdersStateService {
   private orders: Order[] = [];
 
   getOrders() {
     return this.orders;
-  }
-
-  updateOrders(orders: Order[]) {
-    this.orders = orders;
-  }
-
-  getOrdersQuantity() {
-    return this.orders.reduce((total, order) => total + order.quantity, 0);
   }
 
   addProduct(product: Product) {
